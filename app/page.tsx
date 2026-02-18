@@ -13,6 +13,13 @@ useEffect(() => {
   fetch("/api/track", { method: "POST" });
 }, []);
 
+
+useEffect(() => {
+  fetch("/api/stats", {
+    method: "POST"
+  });
+}, []);
+
   // Lire localStorage au chargement
   useEffect(() => {
     const adminStatus = localStorage.getItem("isAdmin");
