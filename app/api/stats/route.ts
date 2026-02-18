@@ -1,44 +1,60 @@
-import fs from "fs";
-import path from "path";
+import { pool } from "@/lib/db";
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request) {
-  const filePath = path.join(process.cwd(), "data", "stats.json");
+export async function GET() {
+  const total = await pool.query("SELECT total_visits FROM stats LIMIT 1");
+  const daily = await pool.query(
+    "SELECT visits FROM daily_stats WHERE date = CURRENT_DATE"
+  );
 
-  const file = fs.readFileSync(filePath, "utf-8");
-  const stats = JSON.parse(file);
-
-  return NextResponse.json(stats);
+  return NextResponse.json({
+    total: total.rows[0]?.total_visits || 0,
+    today: daily.rows[0]?.visits || 0,
+  });
 }
 
 export async function POST(req: Request) {
-  const filePath = path.join(process.cwd(), "data", "stats.json");
-  const file = fs.readFileSync(filePath, "utf-8");
-  const stats = JSON.parse(file);
+  const client = await pool.connect();
 
-  const ip =
-    req.headers.get("x-forwarded-for") ||
-    req.headers.get("x-real-ip") ||
-    "local";
+  try {
+    await client.query("BEGIN");
 
-  const today = new Date().toISOString().split("T")[0];
+    // 🔢 Total global
+    await client.query(
+      "UPDATE stats SET total_visits = total_visits + 1 WHERE id = 1"
+    );
 
-  // 🔢 Total visites
-  stats.totalVisits += 1;
+    // 📅 Date du jour
+    const today = new Date().toISOString().split("T")[0];
 
-  // 📅 Compteur journalier
-  if (!stats.dailyVisits[today]) {
-    stats.dailyVisits[today] = 0;
+    // Vérifier si date existe
+    const dailyCheck = await client.query(
+      "SELECT * FROM daily_stats WHERE date = $1",
+      [today]
+    );
+
+    if (dailyCheck.rowCount === 0) {
+      // Nouvelle date
+      await client.query(
+        "INSERT INTO daily_stats (date, visits) VALUES ($1, 1)",
+        [today]
+      );
+    } else {
+      // Incrémenter
+      await client.query(
+        "UPDATE daily_stats SET visits = visits + 1 WHERE date = $1",
+        [today]
+      );
+    }
+
+    await client.query("COMMIT");
+
+    return NextResponse.json({ success: true });
+  } catch (err) {
+    await client.query("ROLLBACK");
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
+  } finally {
+    client.release();
   }
-  stats.dailyVisits[today] += 1;
-
-  // 👤 Visiteurs uniques
-  if (!stats.ips.includes(ip)) {
-    stats.ips.push(ip);
-    stats.uniqueVisitors += 1;
-  }
-
-  fs.writeFileSync(filePath, JSON.stringify(stats, null, 2));
-
-  return NextResponse.json({ success: true });
 }
+
