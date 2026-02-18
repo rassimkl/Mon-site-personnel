@@ -22,43 +22,43 @@ export async function GET() {
 
 
 export async function POST(req: Request) {
+  const ip =
+    req.headers.get("x-forwarded-for") ||
+    req.headers.get("x-real-ip") ||
+    "unknown";
+
   const client = await pool.connect();
 
   try {
     await client.query("BEGIN");
 
-    const today = new Date().toISOString().split("T")[0];
-
-    // 🔢 Total visits
-    const statsResult = await client.query("SELECT * FROM stats LIMIT 1");
-    const stats = statsResult.rows[0];
-
+    // 1️⃣ Incrémenter total visits
     await client.query(
-      "UPDATE stats SET total_visits = total_visits + 1 WHERE id = $1",
-      [stats.id]
+      "UPDATE stats SET total_visits = total_visits + 1 WHERE id = 1"
     );
 
-    // 📅 Daily visits
-    const dailyCheck = await client.query(
-      "SELECT * FROM daily_stats WHERE date = $1",
-      [today]
+    // 2️⃣ Vérifier si IP existe
+    const existing = await client.query(
+      "SELECT * FROM visitors WHERE ip = $1",
+      [ip]
     );
 
-    if (dailyCheck.rows.length === 0) {
+    if (existing.rows.length === 0) {
+      // Nouvelle IP → unique visitor
       await client.query(
-        "INSERT INTO daily_stats (date, visits) VALUES ($1, 1)",
-        [today]
+        "INSERT INTO visitors (ip) VALUES ($1)",
+        [ip]
       );
-    } else {
+
       await client.query(
-        "UPDATE daily_stats SET visits = visits + 1 WHERE date = $1",
-        [today]
+        "UPDATE stats SET unique_visitors = unique_visitors + 1 WHERE id = 1"
       );
     }
 
     await client.query("COMMIT");
 
     return NextResponse.json({ success: true });
+
   } catch (err) {
     await client.query("ROLLBACK");
     return NextResponse.json({ error: "Server error" }, { status: 500 });
