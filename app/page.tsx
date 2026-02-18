@@ -34,7 +34,7 @@ useEffect(() => {
         onLogout={handleLogout}
       />
 
-      <Hero isAdmin={isAdmin} />
+      <Hero />
 
       {showModal && (
         <AdminModal
