@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import styles from "../styles/AdminPage.module.css";
 
 type DailyStat = {
   id: number;
@@ -44,55 +45,41 @@ export default function AdminPage() {
   );
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        padding: "120px",
-        color: "white",
-        background: "linear-gradient(135deg, #1e1e3f, #5e2b97)",
-      }}
-    >
-      {/* Logo */}
-      <Link
-        href="/"
-        style={{
-          position: "absolute",
-          top: "40px",
-          left: "60px",
-          zIndex: 2,
-        }}
-      >
-        <img src="/images/logo.png" alt="Logo" width={90} />
+    <div className={styles.container}>
+
+      <Link href="/" className={styles.logoLink}>
+        <img
+          src="/images/logo.png"
+          alt="Logo"
+          className={styles.logo}
+        />
       </Link>
 
-      <h1 style={{ fontSize: "40px", marginBottom: "50px" }}>
-        📊 Statistiques
-      </h1>
+      <h1 className={styles.title}>📊 Statistiques</h1>
 
-      <div style={{ display: "flex", gap: "80px" }}>
-        {/* Total */}
-        <div>
+      <div className={styles.statsRow}>
+
+        <div className={styles.statBlock}>
           <h2>Total visites</h2>
-          <p style={{ fontSize: "60px" }}>
+          <p className={styles.statNumber}>
             {stats.total_visits}
           </p>
         </div>
 
-        {/* Unique */}
-        <div>
+        <div className={styles.statBlock}>
           <h2>Visiteurs uniques</h2>
-          <p style={{ fontSize: "60px" }}>
+          <p className={styles.statNumber}>
             {stats.unique_visitors}
           </p>
         </div>
 
-        {/* Aujourd'hui */}
-        <div>
+        <div className={styles.statBlock}>
           <h2>Visites aujourd'hui</h2>
-          <p style={{ fontSize: "60px" }}>
+          <p className={styles.statNumber}>
             {todayStats ? todayStats.visits : 0}
           </p>
         </div>
+
       </div>
     </div>
   );

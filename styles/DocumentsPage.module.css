@@ -107,12 +107,32 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+
   .container {
-    padding: 120px 25px 60px 25px;
+    padding: 110px 20px 50px 20px;
+  }
+
+  /* Logo plus petit en haut à gauche */
+  .logoLink {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+  }
+
+  .logo {
+    width: 50px;
+  }
+
+  /* 🔥 Titre plus petit */
+  .title {
+    font-size: 24px;   /* plus petit */
+    margin-top: 35px;  /* pour éviter qu’il touche le logo */
+    margin-bottom: 40px;
   }
 
   .splitLayout {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 50px;
   }
+
 }
