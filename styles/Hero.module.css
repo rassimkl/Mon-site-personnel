@@ -121,21 +121,23 @@
 @media (max-width: 768px) {
 
   .hero {
-    flex-direction: column; /* empile les deux blocs */
+    display: flex;
+    flex-direction: column !important; /* force le stack */
   }
 
   .side {
-    padding: 60px 25px; /* moins d'espace */
-    min-height: 50vh;   /* évite trop grand */
+    padding: 60px 25px;
+    min-height: auto;       /* supprime le 100vh par bloc */
+    height: auto;
   }
 
   .title {
-    font-size: 28px;
-    line-height: 1.15;
+    font-size: 26px;
+    line-height: 1.2;
   }
 
   .titleNetwork {
-    margin-top: 0; /* supprime le décalage mobile */
+    margin-top: 0; /* enlève le décalage */
   }
 
   .description {
@@ -145,12 +147,11 @@
 
   .buttonContainer {
     flex-direction: column;
-    gap: 15px;
+    align-items: stretch;
   }
 
   .button {
     width: 100%;
-    text-align: center;
   }
 
 }
