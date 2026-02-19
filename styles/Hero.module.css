@@ -3,8 +3,8 @@
 /* ============================= */
 
 .hero {
-  min-height: 100vh;
   display: flex;
+  min-height: 100vh;
 }
 
 /* ============================= */
@@ -36,9 +36,13 @@
 /* OVERLAYS */
 /* ============================= */
 
-.overlayNetwork {
+.overlayNetwork,
+.overlayDev {
   position: absolute;
   inset: 0;
+}
+
+.overlayNetwork {
   background: linear-gradient(
     135deg,
     rgba(10, 30, 40, 0.9),
@@ -47,8 +51,6 @@
 }
 
 .overlayDev {
-  position: absolute;
-  inset: 0;
   background: linear-gradient(
     135deg,
     rgba(100, 0, 120, 0.85),
@@ -120,24 +122,27 @@
 
 @media (max-width: 768px) {
 
+  /* Empile les blocs */
   .hero {
-    display: flex;
-    flex-direction: column !important; /* force le stack */
+    flex-direction: column;
+    min-height: auto;
   }
 
+  /* Chaque bloc prend toute la largeur */
   .side {
+    width: 100%;
+    min-height: 100vh; /* 🔥 chaque bloc = 1 écran */
     padding: 60px 25px;
-    min-height: auto;       /* supprime le 100vh par bloc */
-    height: auto;
   }
 
-  .title {
-    font-size: 26px;
-    line-height: 1.2;
-  }
-
+  /* Supprime le décalage */
   .titleNetwork {
-    margin-top: 0; /* enlève le décalage */
+    margin-top: 0;
+  }
+
+  /* Texte plus petit */
+  .title {
+    font-size: 28px;
   }
 
   .description {
@@ -145,13 +150,13 @@
     max-width: 100%;
   }
 
+  /* Boutons en colonne */
   .buttonContainer {
     flex-direction: column;
-    align-items: stretch;
   }
 
   .button {
     width: 100%;
+    text-align: center;
   }
-
 }
