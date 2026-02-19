@@ -129,7 +129,7 @@
 
   .side {
     min-height: auto;   /* 🔥 enlève le plein écran */
-    padding: 140px 80px 100px 80px;
+    padding: 120px 25px 60px 25px;
   }
 
   .title {
