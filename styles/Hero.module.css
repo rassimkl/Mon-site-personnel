@@ -125,7 +125,7 @@
   .hero {
     flex-direction: column;
     min-height: auto; /* 🔥 important */
-    padding-top: 80px;
+    padding-top: 50px;
   }
 
   .side {
