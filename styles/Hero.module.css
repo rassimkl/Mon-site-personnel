@@ -74,7 +74,7 @@
 }
 
 .titleNetwork {
-  margin-top: -65px;
+  margin-top: -50px;
 }
 
 .description {
@@ -122,27 +122,22 @@
 
 @media (max-width: 768px) {
 
-  /* Empile les blocs */
   .hero {
     flex-direction: column;
-    min-height: auto;
+    min-height: auto; /* 🔥 important */
   }
 
-  /* Chaque bloc prend toute la largeur */
   .side {
-    width: 100%;
-    min-height: 100vh; /* 🔥 chaque bloc = 1 écran */
-    padding: 60px 25px;
+    min-height: auto;   /* 🔥 enlève le plein écran */
+    padding: 50px 25px;
   }
 
-  /* Supprime le décalage */
+  .title {
+    font-size: 26px;
+  }
+
   .titleNetwork {
     margin-top: 0;
-  }
-
-  /* Texte plus petit */
-  .title {
-    font-size: 28px;
   }
 
   .description {
@@ -150,7 +145,6 @@
     max-width: 100%;
   }
 
-  /* Boutons en colonne */
   .buttonContainer {
     flex-direction: column;
   }
