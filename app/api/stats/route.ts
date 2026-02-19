@@ -6,20 +6,31 @@ export async function GET() {
   const client = await pool.connect();
 
   try {
-    const statsResult = await client.query("SELECT * FROM stats LIMIT 1");
-    const dailyResult = await client.query("SELECT * FROM daily_stats");
+    const total = await client.query(
+      "SELECT total_visits FROM stats WHERE id = 1"
+    );
+
+    const unique = await client.query(
+      "SELECT COUNT(*) FROM visitors"
+    );
+
+    const today = await client.query(
+      "SELECT visits FROM daily_stats WHERE date = CURRENT_DATE"
+    );
 
     return NextResponse.json({
-      ...statsResult.rows[0],
-      dailyStats: dailyResult.rows,
+      totalVisits: total.rows[0]?.total_visits || 0,
+      uniqueVisitors: parseInt(unique.rows[0]?.count || "0"),
+      todayVisits: today.rows[0]?.visits || 0
     });
+
   } catch (err) {
+    console.error(err);
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   } finally {
     client.release();
   }
 }
-
 
 export async function POST(req: Request) {
   const ip =
