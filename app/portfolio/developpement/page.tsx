@@ -57,7 +57,7 @@ export default function DeveloppementPage() {
 
         <div className={styles.card}>
           <h3 className={styles.cardTitle}>
-            Développeur Web & Mobile – The Inspire Academy
+            Développeur Web & Mobile – The Inspire Academy (stage)
           </h3>
           <p className={styles.cardSub}>
             Octobre 2025 – Mars 2026 | Biarritz
