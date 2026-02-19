@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import styles from "../../styles/ContactPage.module.css";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -16,82 +17,40 @@ export default function ContactPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(form),
-  });
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
 
-  if (res.ok) {
-    alert("Message envoyé avec succès !");
-    setForm({ nom: "", email: "", message: "" });
-  } else {
-    alert("Erreur lors de l'envoi.");
-  }
-};
+    if (res.ok) {
+      alert("Message envoyé avec succès !");
+      setForm({ nom: "", email: "", message: "" });
+    } else {
+      alert("Erreur lors de l'envoi.");
+    }
+  };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background:
-          "linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #ff0055 100%)",
-        padding: "120px 80px",
-        color: "white",
-      }}
-    >
+    <div className={styles.container}>
 
-      {/* 🔥 LOGO CLIQUABLE */}
-    <Link href="/" style={{ textDecoration: "none" }}>
-      <img
-        src="/images/logo.png"
-        alt="Logo"
-        style={{
-          width: "90px",
-          borderRadius: "20px",
-          marginTop: "-70px",
-          cursor: "pointer",
-          transition: "0.3s",
-        }}
-        onMouseOver={(e) =>
-          (e.currentTarget.style.transform = "scale(1.05)")
-        }
-        onMouseOut={(e) =>
-          (e.currentTarget.style.transform = "scale(1)")
-        }
-      />
-    </Link>
-      <h1
-        style={{
-          fontSize: "56px",
-          marginBottom: "80px",
-          fontWeight: "700",
-          textAlign: "center",
-        }}
-      >
-        Me Contacter
-      </h1>
+      <Link href="/">
+        <img
+          src="/images/logo.png"
+          alt="Logo"
+          className={styles.logo}
+        />
+      </Link>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "60px",
-        }}
-      >
-        {/* COLONNE INFOS */}
-        <div
-          style={{
-            background: "rgba(255,255,255,0.05)",
-            padding: "40px",
-            borderRadius: "20px",
-            backdropFilter: "blur(15px)",
-            border: "1px solid rgba(255,255,255,0.1)",
-          }}
-        >
+      <h1 className={styles.title}>Me Contacter</h1>
+
+      <div className={styles.grid}>
+
+        {/* INFOS */}
+        <div className={styles.card}>
           <h2 style={{ marginBottom: "30px" }}>📌 Informations</h2>
 
           <div style={{ lineHeight: "2.2" }}>
@@ -114,16 +73,8 @@ const handleSubmit = async (e: React.FormEvent) => {
           </div>
         </div>
 
-        {/* COLONNE FORMULAIRE */}
-        <div
-          style={{
-            background: "rgba(255,255,255,0.05)",
-            padding: "40px",
-            borderRadius: "20px",
-            backdropFilter: "blur(15px)",
-            border: "1px solid rgba(255,255,255,0.1)",
-          }}
-        >
+        {/* FORMULAIRE */}
+        <div className={styles.card}>
           <h2 style={{ marginBottom: "30px" }}>📨 Envoyer un message</h2>
 
           <form onSubmit={handleSubmit}>
@@ -134,7 +85,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               value={form.nom}
               onChange={handleChange}
               required
-              style={inputStyle}
+              className={styles.input}
             />
 
             <input
@@ -144,7 +95,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               value={form.email}
               onChange={handleChange}
               required
-              style={inputStyle}
+              className={styles.input}
             />
 
             <textarea
@@ -153,40 +104,16 @@ const handleSubmit = async (e: React.FormEvent) => {
               value={form.message}
               onChange={handleChange}
               required
-              style={{ ...inputStyle, height: "140px", resize: "none" }}
+              className={`${styles.input} ${styles.textarea}`}
             />
 
-            <button type="submit" style={buttonStyle}>
+            <button type="submit" className={styles.button}>
               Envoyer le message
             </button>
           </form>
         </div>
+
       </div>
     </div>
   );
 }
-
-const inputStyle: React.CSSProperties = {
-  width: "100%",
-  padding: "14px",
-  marginBottom: "20px",
-  borderRadius: "12px",
-  border: "1px solid rgba(255,255,255,0.2)",
-  background: "rgba(255,255,255,0.08)",
-  color: "white",
-  fontSize: "15px",
-  outline: "none",
-};
-
-const buttonStyle: React.CSSProperties = {
-  width: "100%",
-  background: "#ff0055",
-  padding: "14px",
-  borderRadius: "30px",
-  border: "none",
-  color: "white",
-  fontWeight: "600",
-  cursor: "pointer",
-  fontSize: "16px",
-  marginTop: "10px",
-};

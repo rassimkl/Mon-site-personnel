@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import Link from "next/link";
-
+import styles from "@/styles/CategoriePage.module.css";
 
 export default async function CategoriePage({
   params,
@@ -25,65 +25,29 @@ export default async function CategoriePage({
   }
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        position: "relative",
-        padding: "120px 80px",
-        color: "white",
-        backgroundImage: "url('/images/dev-workspace.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Overlay */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(135deg, rgba(20,20,40,0.92), rgba(80,0,120,0.85))",
-        }}
-      />
+    <div className={styles.container}>
+      <div className={styles.overlay} />
 
-      <div style={{ position: "relative", zIndex: 2 }}>
+      <div className={styles.content}>
 
-        {/* TITRE */}
-        <h1 style={{ fontSize: "42px", marginBottom: "40px" }}>
+        <h1 className={styles.title}>
           {decodedCategorie.replace("_", " ").toUpperCase()}
         </h1>
 
         {files.length === 0 ? (
-          <p style={{ opacity: 0.7 }}>
+          <p className={styles.emptyText}>
             Aucun document disponible.
           </p>
         ) : (
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns:
-                "repeat(auto-fit, minmax(250px, 1fr))",
-              gap: "25px",
-            }}
-          >
+          <div className={styles.filesGrid}>
             {files.map((file) => (
-              <div
-                key={file}
-                style={{
-                  background:
-                    "linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05))",
-                  padding: "25px",
-                  borderRadius: "20px",
-                  border: "1px solid rgba(255,255,255,0.2)",
-                  backdropFilter: "blur(15px)",
-                }}
-              >
-                <p style={{ marginBottom: "15px" }}>{file}</p>
+              <div key={file} className={styles.fileCard}>
+                <p className={styles.fileName}>{file}</p>
 
                 <a
                   href={`/documents/${categorie}/${file}`}
                   target="_blank"
-                  style={{ color: "#ffffff" }}
+                  className={styles.link}
                 >
                   Voir le document
                 </a>
@@ -91,11 +55,7 @@ export default async function CategoriePage({
                 <a
                   href={`/documents/${categorie}/${file}`}
                   download
-                  style={{
-                    marginLeft: 10,
-                    color: "#ffffff",
-                    fontWeight: "600",
-                  }}
+                  className={styles.download}
                 >
                   Télécharger
                 </a>
@@ -104,23 +64,12 @@ export default async function CategoriePage({
           </div>
         )}
 
-        {/* RETOUR */}
-        <div style={{ marginTop: "60px" }}>
-          <Link
-            href="/documents"
-            style={{
-              color: "white",
-              textDecoration: "none",
-              border: "1px solid rgba(255,255,255,0.35)",
-              padding: "8px 20px",
-              borderRadius: "20px",
-              backdropFilter: "blur(10px)",
-            }}
-          >
+        <div className={styles.back}>
+          <Link href="/documents" className={styles.backLink}>
             ← Retour
           </Link>
         </div>
-        
+
       </div>
     </div>
   );

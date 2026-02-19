@@ -1,0 +1,96 @@
+.container {
+  min-height: 100vh;
+  position: relative;
+  padding: 120px 80px;
+  color: white;
+
+  background-image: url("/images/dev-workspace.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Overlay identique */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(20,20,40,0.92),
+    rgba(80,0,120,0.85)
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 42px;
+  margin-bottom: 40px;
+}
+
+.emptyText {
+  opacity: 0.7;
+}
+
+/* GRID */
+.filesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* CARD */
+.fileCard {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.05)
+  );
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(15px);
+}
+
+.fileName {
+  margin-bottom: 15px;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+}
+
+.download {
+  margin-left: 10px;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* RETOUR */
+.back {
+  margin-top: 60px;
+}
+
+.backLink {
+  color: white;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 8px 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .container {
+    padding: 120px 25px 60px 25px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+}
