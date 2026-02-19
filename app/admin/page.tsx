@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import styles from "../styles/AdminPage.module.css";
+import styles from "../../styles/AdminPage.module.css";
 
 type DailyStat = {
   id: number;
