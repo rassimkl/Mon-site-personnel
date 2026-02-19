@@ -1,82 +1,38 @@
 "use client";
 
 import Link from "next/link";
+import styles from "../../../styles/DeveloppementPage.module.css";
 
 export default function DeveloppementPage() {
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        position: "relative",
+    <div className={styles.container}>
+      
+      <div className={styles.overlay} />
 
-        // ✅ on garde ta structure
-        padding: "100px 80px",
-        color: "white",
-
-        // ✅ design only
-        backgroundImage: "url('/images/dev.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* ✅ Overlay design */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(135deg, rgba(100,0,120,0.92), rgba(0, 0, 0, 0.9))",
-        }}
-      />
-
-      {/* ✅ Logo accueil (ajout visuel seulement) */}
-      <Link
-        href="/"
-        style={{
-          position: "absolute",
-          top: "40px",
-          left: "60px",
-          zIndex: 1000,
-        }}
-      >
+      {/* LOGO */}
+      <Link href="/" className={styles.logoLink}>
         <img
           src="/images/logo.png"
           alt="Logo"
-          style={{
-            width: "70px",
-            borderRadius: "18px",
-            cursor: "pointer",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
-          }}
+          className={styles.logo}
         />
       </Link>
 
-      {/* ✅ contenu au-dessus de l’overlay */}
-      <div style={{ position: "relative", zIndex: 2 }}>
+      <div className={styles.content}>
+
         <div style={{ marginTop: "30px", marginBottom: "20px" }}>
-          <Link
-            href="/portfolio"
-            style={{
-              // ✅ visuel uniquement
-              color: "white",
-              textDecoration: "none",
-              border: "1px solid rgba(255,255,255,0.35)",
-              padding: "8px 18px",
-              borderRadius: "20px",
-              backdropFilter: "blur(10px)",
-            }}
-          >
+          <Link href="/portfolio" className={styles.backLink}>
             ← Retour
           </Link>
         </div>
 
         {/* HEADER */}
-        <div style={{ maxWidth: "900px", marginBottom: "80px" }}>
-          <h1 style={{ fontSize: "48px", marginBottom: "20px" }}>
+        <div className={styles.header}>
+          <h1 className={styles.title}>
             Développeur Web & Mobile - Full Stack
           </h1>
 
-          <p style={{ opacity: 0.8, fontSize: "18px", lineHeight: "1.6" }}>
+          <p className={styles.paragraph}>
             Développeur Web & Mobile Full Stack, je conçois et développe des
             applications web et mobiles modernes, en maîtrisant aussi bien le
             front-end, le back-end que la gestion des bases de données et des
@@ -95,28 +51,19 @@ export default function DeveloppementPage() {
         </div>
 
         {/* EXPÉRIENCE */}
-        <h2 style={{ marginBottom: "30px" }}>Expérience Professionnelle</h2>
+        <h2 className={styles.sectionTitle}>
+          Expérience Professionnelle
+        </h2>
 
-        <div
-          style={{
-            // ✅ même structure, juste glass
-            background:
-              "linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05))",
-            padding: "30px",
-            borderRadius: "20px",
-            marginBottom: "60px",
-            border: "1px solid rgba(255,255,255,0.2)",
-            backdropFilter: "blur(15px)",
-          }}
-        >
-          <h3 style={{ marginBottom: "10px" }}>
+        <div className={styles.card}>
+          <h3 className={styles.cardTitle}>
             Développeur Web & Mobile – The Inspire Academy
           </h3>
-          <p style={{ opacity: 0.7, marginBottom: "15px" }}>
+          <p className={styles.cardSub}>
             Octobre 2025 – Mars 2026 | Biarritz
           </p>
 
-          <p style={{ opacity: 0.85 }}>
+          <p className={styles.cardText}>
             • J'interviens sur l'application web interne de l'école développée
             en PHP/Laravel (amélioration de fonctionnalités existantes, ajout de
             nouvelles fonctionnalités). <br />
@@ -129,57 +76,31 @@ export default function DeveloppementPage() {
         </div>
 
         {/* PROJETS */}
-        <h2 style={{ marginBottom: "30px" }}>Mes projets</h2>
+        <h2 className={styles.sectionTitle}>Mes projets</h2>
 
-        <div
-          style={{
-            // ✅ EXACTEMENT comme avant
-            display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
-            gap: "30px",
-          }}
-        >
+        <div className={styles.projectsGrid}>
+
           {/* PROJET 1 */}
-          <div
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05))",
-              padding: "25px",
-              borderRadius: "20px",
-              border: "1px solid rgba(255,255,255,0.2)",
-              backdropFilter: "blur(15px)",
-            }}
-          >
-            <h3 style={{ marginBottom: "15px" }}>
+          <div className={`${styles.card} ${styles.cardSmall}`}>
+            <h3 className={styles.cardTitle}>
               Application Mobile "The Inspire Academy"
             </h3>
 
-            <p style={{ opacity: 0.85 }}>
+            <p className={styles.cardText}>
               • Backend : Java, Spring Boot, API REST sécurisée <br />
               • Base de données : PostgreSQL <br />
               • Authentification : JWT <br />
-              • Architecture : séparation Controller / Service / Repository{" "}
-              <br />
-              • Frontend mobile : React Native (application cross-platform){" "}
-              <br />
+              • Architecture : séparation Controller / Service / Repository <br />
+              • Frontend mobile : React Native (application cross-platform) <br />
               • Communication via API REST
             </p>
           </div>
 
           {/* PROJET 2 */}
-          <div
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05))",
-              padding: "25px",
-              borderRadius: "20px",
-              border: "1px solid rgba(255,255,255,0.2)",
-              backdropFilter: "blur(15px)",
-            }}
-          >
-            <h3 style={{ marginBottom: "15px" }}>Mon site "portfolio"</h3>
+          <div className={`${styles.card} ${styles.cardSmall}`}>
+            <h3 className={styles.cardTitle}>Mon site "portfolio"</h3>
 
-            <p style={{ opacity: 0.85 }}>
+            <p className={styles.cardText}>
               • Développement avec Next.js (App Router) <br />
               • API Routes sécurisées <br />
               • Authentification administrateur avec JWT <br />
@@ -187,39 +108,27 @@ export default function DeveloppementPage() {
               • Base de données PostgreSQL <br />
               • Upload et gestion de documents <br />
               • Routing dynamique <br />
-              • Architecture modulaire <br />
+              • Architecture modulaire
             </p>
           </div>
 
           {/* PROJET 3 */}
-          <div
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05))",
-              padding: "25px",
-              borderRadius: "20px",
-              border: "1px solid rgba(255,255,255,0.2)",
-              backdropFilter: "blur(15px)",
-              transition: "0.3s",
-            }}
-          >
-            <h3 style={{ marginBottom: "15px" }}>
+          <div className={`${styles.card} ${styles.cardSmall}`}>
+            <h3 className={styles.cardTitle}>
               Application de Gestion de Patients
             </h3>
 
-            <p style={{ opacity: 0.85 }}>
+            <p className={styles.cardText}>
               • Analyse et spécification des besoins <br />
               • Modélisation UML (cas d’utilisation, séquence, activité,
               diagramme de classes) <br />
-              • Conception du modèle relationnel et dictionnaire de données{" "}
-              <br />
+              • Conception du modèle relationnel et dictionnaire de données <br />
               • Authentification multi-rôles (Administrateur, Médecin, Agent de
               saisie) <br />
               • Gestion complète des patients : admission, modification,
               archivage <br />
               • Génération et impression de documents administratifs <br />
-              • Calcul de statistiques (naissances, décès, hospitalisations){" "}
-              <br />
+              • Calcul de statistiques (naissances, décès, hospitalisations) <br />
               • Frontend : HTML, CSS, JavaScript, Bootstrap <br />
               • Backend : PHP <br />
               • Base de données : MySQL (phpMyAdmin, XAMPP)
@@ -227,25 +136,17 @@ export default function DeveloppementPage() {
           </div>
 
           {/* PROJET 4 */}
-          <div
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05))",
-              padding: "25px",
-              borderRadius: "20px",
-              border: "1px solid rgba(255,255,255,0.2)",
-              backdropFilter: "blur(15px)",
-            }}
-          >
-            <h3 style={{ marginBottom: "15px" }}>Application Météo</h3>
+          <div className={`${styles.card} ${styles.cardSmall}`}>
+            <h3 className={styles.cardTitle}>Application Météo</h3>
 
-            <p style={{ opacity: 0.85 }}>
+            <p className={styles.cardText}>
               • Application web développée avec Vue.js <br />
               • Intégration de l’API OpenWeatherMap <br />
               • Récupération et affichage dynamique des données météo <br />
-              • Utilisation de requêtes asynchrones <br />
+              • Utilisation de requêtes asynchrones
             </p>
           </div>
+
         </div>
       </div>
     </div>
