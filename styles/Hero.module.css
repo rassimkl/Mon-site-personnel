@@ -125,20 +125,15 @@
   .hero {
     flex-direction: column;
     min-height: auto; /* 🔥 important */
-    padding-top: 40px;
   }
 
   .side {
     min-height: auto;   /* 🔥 enlève le plein écran */
-    padding: 50px 25px;
+    padding: 140px 80px 100px 80px;
   }
 
   .title {
     font-size: 26px;
-  }
-
-  .titleNetwork {
-    margin-top: 0;
   }
 
   .description {

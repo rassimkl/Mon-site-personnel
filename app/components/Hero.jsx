@@ -7,11 +7,11 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
       {/* NETWORK SIDE */}
-      <div className={`${styles.side} ${styles.network}`}>
+      <div className={`${styles.side}`}>
         <div className={styles.overlayNetwork} />
 
         <div className={styles.content}>
-          <h1 className={`${styles.title} ${styles.titleNetwork}`}>
+          <h1 className={`${styles.title}`}>
             🌐 Ingénieur Réseau
           </h1>
 
