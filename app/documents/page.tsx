@@ -98,38 +98,56 @@ export default function DocumentsPage() {
         </div>
 
         {isAdmin && (
-          <div className={styles.adminPanel}>
-            <h2 className={styles.adminTitle}>👑 Upload Administrateur</h2>
+  <div className={styles.adminPanel}>
+    <h2 className={styles.adminTitle}>👑 Espace Administrateur</h2>
 
-            <div className={styles.adminRow}>
-              <label>
-                📁 {selectedFile ? selectedFile.name : "Choisir un fichier"}
-                <input
-                  type="file"
-                  hidden
-                  onChange={(e) =>
-                    setSelectedFile(e.target.files ? e.target.files[0] : null)
-                  }
-                />
-              </label>
-
-              <select
-                value={folder}
-                onChange={(e) => setFolder(e.target.value)}
-              >
-                {categories.map((cat) => (
-                  <option key={cat.slug} value={cat.slug}>
-                    {cat.name}
-                  </option>
-                ))}
-              </select>
-
-              <button onClick={handleUpload}>
-                🚀 Téléverser
-              </button>
-            </div>
+    <div className={styles.uploadCard}>
+      
+      <div
+        className={styles.dropZone}
+        onClick={() => document.getElementById("fileInput")?.click()}
+      >
+        {selectedFile ? (
+          <div className={styles.fileInfo}>
+            📄 {selectedFile.name}
+          </div>
+        ) : (
+          <div className={styles.dropText}>
+            Glissez votre fichier ici ou cliquez pour sélectionner
           </div>
         )}
+
+        <input
+          id="fileInput"
+          type="file"
+          hidden
+          onChange={(e) =>
+            setSelectedFile(e.target.files ? e.target.files[0] : null)
+          }
+        />
+      </div>
+
+      <div className={styles.uploadControls}>
+        <select
+          value={folder}
+          onChange={(e) => setFolder(e.target.value)}
+          className={styles.select}
+        >
+          {categories.map((cat) => (
+            <option key={cat.slug} value={cat.slug}>
+              {cat.name}
+            </option>
+          ))}
+        </select>
+
+        <button onClick={handleUpload} className={styles.uploadButton}>
+          🚀 Téléverser
+        </button>
+      </div>
+
+    </div>
+  </div>
+)}
       </div>
     </div>
   );

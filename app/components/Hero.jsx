@@ -6,59 +6,31 @@ import styles from "../../styles/Hero.module.css";
 export default function Hero() {
   return (
     <section className={styles.hero}>
-      {/* NETWORK SIDE */}
-      <div className={`${styles.side} ${styles.network}`}>
-        <div className={styles.overlayNetwork} />
+      <div className={styles.overlay} />
 
-        <div className={styles.content}>
-          <h1 className={`${styles.title} ${styles.titleNetwork}`}>
-            🌐 Ingénieur Réseau
-          </h1>
+      <div className={styles.content}>
+        <h1 className={styles.title}>
+          Ingénieur IT spécialisé en Développement Web & Mobile et Infrastructure Réseau
+        </h1>
 
-          <p className={styles.description}>
-            Architecture et administration d’infrastructures réseau, déploiement
-            VoIP, sécurisation des systèmes et optimisation des performances
-            dans des environnements multi-serveurs.
-          </p>
+        <p className={styles.subtitle}>
+          Conception d’infrastructures sécurisées, développement d’applications
+          web et mobiles performantes, architecture backend Spring Boot,
+          bases de données PostgreSQL et solutions cloud modernes.
+        </p>
 
-          <div className={styles.buttonContainer}>
-            <Link href="/portfolio/reseau">
-              <button
-                className={`${styles.button} ${styles.buttonNetwork}`}
-              >
-                Mon portfolio
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>
+        <div className={styles.buttons}>
+          <Link href="/portfolio">
+            <button className={styles.primaryBtn}>
+              Voir mon portfolio
+            </button>
+          </Link>
 
-      {/* DEV SIDE */}
-      <div className={`${styles.side} ${styles.dev}`}>
-        <div className={styles.overlayDev} />
-
-        <div className={styles.content}>
-          <h1 className={styles.title}>
-            💻 Développeur Web & Mobile - Full Stack
-          </h1>
-
-          <p
-            className={`${styles.description} ${styles.descriptionDev}`}
-          >
-            Conception et développement d’applications web et mobiles modernes,
-            intégrant des architectures sécurisées et des bases de données
-            relationnelles.
-          </p>
-
-          <div className={styles.buttonContainer}>
-            <Link href="/portfolio/developpement">
-              <button
-                className={`${styles.button} ${styles.buttonDev}`}
-              >
-                Mon portfolio
-              </button>
-            </Link>
-          </div>
+          <Link href="/contact">
+            <button className={styles.secondaryBtn}>
+              Me contacter
+            </button>
+          </Link>
         </div>
       </div>
     </section>

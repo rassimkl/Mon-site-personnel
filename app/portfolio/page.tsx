@@ -21,7 +21,7 @@ export default function PortfolioPage() {
         <div className={`${styles.overlay} ${styles.overlayNetwork}`} />
         <Link href="/portfolio/reseau">
           <button className={styles.button}>
-            Voir Portfolio Réseau
+            Réseau
           </button>
         </Link>
       </div>
@@ -31,7 +31,7 @@ export default function PortfolioPage() {
         <div className={`${styles.overlay} ${styles.overlayDev}`} />
         <Link href="/portfolio/developpement">
           <button className={styles.button}>
-            Voir Portfolio Développement
+            Développement
           </button>
         </Link>
       </div>
