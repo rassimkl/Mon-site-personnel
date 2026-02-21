@@ -30,12 +30,7 @@ export default function Navbar({ onAdminClick, isAdmin, onLogout }) {
             {item.label}
           </Link>
         ))}
-
-        {isAdmin && (
-          <Link href="/admin" className={styles.link}>
-            Stats
-          </Link>
-        )}
+        
       </div>
 
       {/* ADMIN */}
