@@ -37,14 +37,6 @@ export default function ContactPage() {
   return (
     <div className={styles.container}>
 
-      <Link href="/">
-        <img
-          src="/images/logo.png"
-          alt="Logo"
-          className={styles.logo}
-        />
-      </Link>
-
       <h1 className={styles.title}>Me Contacter</h1>
 
       <div className={styles.grid}>

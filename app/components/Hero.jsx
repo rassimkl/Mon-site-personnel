@@ -6,30 +6,31 @@ import styles from "../../styles/Hero.module.css";
 export default function Hero() {
   return (
     <section className={styles.hero}>
+
+      {/* Overlay gradient */}
       <div className={styles.overlay} />
+
+      {/* Effet lumière */}
+      <div className={styles.lightEffect} />
 
       <div className={styles.content}>
         <h1 className={styles.title}>
-          Ingénieur IT spécialisé en Développement Web & Mobile et Infrastructure Réseau
+          Ingénieur IT
+          <span className={styles.highlight}> Développement Web & Mobile </span>
+          & Infrastructure Réseau
         </h1>
 
         <p className={styles.subtitle}>
-          Conception d’infrastructures sécurisées, développement d’applications
-          web et mobiles performantes, architecture backend Spring Boot,
-          bases de données PostgreSQL et solutions cloud modernes.
+        Je conçois des infrastructures sécurisées et développe des applications web et mobiles performantes basées sur des architectures modernes.
         </p>
 
         <div className={styles.buttons}>
-          <Link href="/portfolio">
-            <button className={styles.primaryBtn}>
-              Voir mon portfolio
-            </button>
-          </Link>
+          <a href="https://www.linkedin.com/in/rassim-kloul-ba5b842a5/" className={styles.primaryBtn}>
+            LinkedIn
+          </a>
 
-          <Link href="/contact">
-            <button className={styles.secondaryBtn}>
-              Me contacter
-            </button>
+          <Link href="/contact" className={styles.secondaryBtn}>
+            Me contacter
           </Link>
         </div>
       </div>

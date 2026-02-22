@@ -4,21 +4,24 @@ import { useState, useEffect } from "react";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import AdminModal from "./components/AdminModal";
+import Parcours from "./components/Parcours";
+import Competences from "./components/Competences"; // ✅ AJOUT
 
 export default function Home() {
   const [isAdmin, setIsAdmin] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-useEffect(() => {
-  fetch("/api/track", { method: "POST" });
-}, []);
+  // Tracking visite
+  useEffect(() => {
+    fetch("/api/track", { method: "POST" });
+  }, []);
 
-
-useEffect(() => {
-  fetch("/api/stats", {
-    method: "POST"
-  });
-}, []);
+  // Stats
+  useEffect(() => {
+    fetch("/api/stats", {
+      method: "POST"
+    });
+  }, []);
 
   // Lire localStorage au chargement
   useEffect(() => {
@@ -35,13 +38,12 @@ useEffect(() => {
 
   return (
     <>
-      <Navbar 
-        onAdminClick={() => setShowModal(true)} 
-        isAdmin={isAdmin}
-        onLogout={handleLogout}
-      />
-
       <Hero />
+
+      <Parcours />
+
+      {/* ✅ SECTION COMPÉTENCES */}
+      <Competences />
 
       {showModal && (
         <AdminModal

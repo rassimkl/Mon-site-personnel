@@ -1,137 +1,160 @@
 "use client";
 
-import Link from "next/link";
 import styles from "../../../styles/ReseauxPage.module.css";
 
-export default function ReseauxPage() {
+export default function Reseau() {
   return (
-    <div className={styles.container}>
+    
+    <div className={styles.page}>
+      {/* HERO */}
+      <section className={styles.hero}>
+        <h1>Mes travaux en réseau</h1>
+        <p>
+          Conception, simulation et sécurisation d’infrastructures réseau :
+          routage, VoIP, analyse protocolaire et administration Linux.
+        </p>
+      </section>
 
-      <div className={styles.overlay} />
-
-      <Link href="/" className={styles.logoLink}>
-        <img
-          src="/images/logo.png"
-          alt="Logo"
-          className={styles.logo}
-        />
-      </Link>
-
-      <div className={styles.content}>
-
-        <div style={{ marginBottom: "40px" }}>
-          <Link href="/portfolio" className={styles.backLink}>
-            ← Retour
-          </Link>
-        </div>
-
-        <div className={styles.header}>
-          <h1 className={styles.title}>
-            Ingénieur Réseau
-          </h1>
-
-          <p className={styles.paragraph}>
-            Ingénieur Réseau avec une expertise en conception, déploiement et sécurisation d’infrastructures réseau, incluant routage avancé, VoIP, analyse protocolaire et administration Linux. <br/> <br/>
-
-            • Maîtrise des modèles OSI et TCP/IP et compréhension des mécanismes internes TCP/UDP <br/>
-            • Configuration et administration de routeurs et commutateurs Cisco <br/>
-            • Segmentation réseau : VLAN, inter-VLAN routing, plan d’adressage IPv4/IPv6 (FLSM/VLSM) <br/>
-            • Routage statique et dynamique : RIP v2, OSPF <br/>
-            • Configuration NAT statique, dynamique et PAT <br/>
-            • Simulation et conception de topologies réseau multi-sites (Packet Tracer, GNS3) <br/>
-            • Déploiement d’infrastructures VoIP avec Cisco CallManager Express (CCME) <br/>
-            • Configuration SCCP (Skinny), interconnexion SIP (Asterisk) <br/>
-            • Analyse des flux RTP/RTCP (latence, jitter, QoS) avec Wireshark <br/>
-            • Programmation réseau bas niveau : sockets TCP/UDP en C <br/>
-            • Administration système Linux : DHCP, DNS, LDAP, NFS, Apache, Postfix <br/>
-            • Sécurisation réseau : pare-feu, VPN, ACL, audit sécurité (tcpdump) <br/>
-            • Virtualisation et environnements multi-serveurs (VirtualBox, VMware)
+      {/* COMPETENCES */}
+      <section className={styles.section}>
+        <div className={styles.skillsCard}>
+          <p className={styles.skillsIntro}>
+            Ingénieur Réseau avec une expertise en conception, déploiement et
+            sécurisation d’infrastructures réseau, incluant routage avancé,
+            VoIP, analyse protocolaire et administration Linux.
           </p>
-        </div>
 
+          <ul className={styles.skillsList}>
+            <li>Modèles OSI & TCP/IP (DNS, DHCP, HTTP/HTTPS, TCP/UDP, ARP, Ethernet)</li>
+            <li>Routeurs & commutateurs Cisco, VLAN, inter-VLAN routing, STP</li>
+            <li>Adressage IPv4/IPv6, sous-réseaux (FLSM/VLSM), NAT / PAT</li>
+            <li>Routage statique & dynamique (RIPv2, OSPF)</li>
+            <li>VoIP : Cisco CallManager Express (CCME), SCCP, SIP (Asterisk), QoS</li>
+            <li>Analyse & diagnostic : Wireshark, tests de flux (ping, traceroute, show)</li>
+            <li>Linux : services réseau & scripts Shell/Bash</li>
+            <li>Sécurité : pare-feu, VPN, ACL, notions de cryptographie</li>
+          </ul>
+
+          <div className={styles.tags}>
+            <span>OSI / TCP-IP</span>
+            <span>VLAN</span>
+            <span>OSPF</span>
+            <span>NAT / PAT</span>
+            <span>Wireshark</span>
+            <span>Linux</span>
+            <span>CCME</span>
+          </div>
+        </div>
+      </section>
+
+      {/* PROJETS */}
+      <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Mes projets</h2>
 
         <div className={styles.projectsGrid}>
-
-          <div className={styles.card}>
-            <h3 className={styles.cardTitle}>
-              Administration Système Linux – Infrastructure multi-serveurs
+          {/* Linux multi-serveurs */}
+          <div className={styles.projectCard}>
+            <h3 className={styles.projectTitle}>
+              Administration Système Linux — Infrastructure multi-serveurs
             </h3>
 
-            <p className={styles.cardText}>
-              • Installation et configuration d’un système Debian sous VirtualBox <br/>
-              • Conception et simulation d’un réseau multi-machines avec Marionnet <br/>
-              • Mise en place d’un serveur DHCP et DNS (primaire / secondaire) <br/>
-              • Déploiement d’un annuaire LDAP (serveur + clients PAM) <br/>
-              • Configuration NFS pour partage réseau <br/>
-              • Installation et configuration serveur Web Apache <br/>
-              • Mise en place d’un serveur mail Postfix <br/>
-              • Scripts Bash d’automatisation (création massive utilisateurs, sauvegardes) <br/>
-              • Planification de tâches avec cron <br/>
-              • Sécurisation via tcpd (hosts.allow / hosts.deny) <br/>
-              • Configuration SSH et firewall <br/>
-              • Audit sécurité (tcpdump, traceroute, john the ripper) <br/>
-              • Sauvegarde et restauration complète de l’infrastructure <br/>
-            </p>
+            <ul className={styles.projectList}>
+              <li>Installation Debian sous VirtualBox / VMware</li>
+              <li>Mise en place DHCP & DNS (primaire / secondaire)</li>
+              <li>Déploiement d’un annuaire LDAP (serveur + clients PAM)</li>
+              <li>Partage NFS, serveur Web Apache, serveur Mail Postfix</li>
+              <li>Automatisation Bash (utilisateurs, sauvegardes) + planification cron</li>
+              <li>Sécurisation : SSH, firewall, règles hosts.allow / hosts.deny</li>
+            </ul>
+
+            <div className={styles.tags}>
+              <span>Debian</span>
+              <span>DHCP</span>
+              <span>DNS</span>
+              <span>LDAP</span>
+              <span>NFS</span>
+              <span>Bash</span>
+            </div>
+
+            {/* Optionnel : lien vers PDF si tu en as un */}
+            {/* <a href="/documents/rapport-linux.pdf" target="_blank" className={styles.projectLink}>Voir le rapport (PDF) →</a> */}
           </div>
 
-          <div className={styles.card}>
-            <h3 className={styles.cardTitle}>
-              Programmation Réseau – Sockets TCP/UDP (C)
+          {/* Sockets C */}
+          <div className={styles.projectCard}>
+            <h3 className={styles.projectTitle}>
+              Programmation Réseau — Sockets TCP/UDP (C)
             </h3>
 
-            <p className={styles.cardText}>
-              • Développement d’applications client/serveur en langage C <br/>
-              • Implémentation communication UDP (mode DATAGRAM – SOCK_DGRAM) <br/>
-              • Implémentation communication TCP (mode STREAM – SOCK_STREAM) <br/>
-              • Utilisation des appels systèmes : socket(), bind(), connect(), listen(), accept() <br/>
-              • Gestion des échanges via send(), sendto(), recv(), recvfrom(), read(), write() <br/>
-              • Manipulation des structures réseau (sockaddr_in, in_addr, hostent) <br/>
-              • Résolution DNS avec gethostbyname() <br/>
-              • Gestion des connexions itératives et parallèles (fork) <br/>
-              • Compréhension du fonctionnement interne TCP/IP
-            </p>
+            <ul className={styles.projectList}>
+              <li>Applications client/serveur en C</li>
+              <li>Communication UDP (SOCK_DGRAM) & TCP (SOCK_STREAM)</li>
+              <li>Appels systèmes : socket(), bind(), connect(), listen(), accept()</li>
+              <li>Échanges : send(), recv(), sendto(), recvfrom(), read(), write()</li>
+              <li>Résolution DNS : gethostbyname()</li>
+              <li>Gestion des connexions itératives/parallèles (fork)</li>
+            </ul>
+
+            <div className={styles.tags}>
+              <span>C</span>
+              <span>TCP</span>
+              <span>UDP</span>
+              <span>Client/Serveur</span>
+              <span>DNS</span>
+            </div>
           </div>
 
-          <div className={styles.card}>
-            <h3 className={styles.cardTitle}>
-              Téléphonie sur IP – Cisco CallManager
+          {/* VoIP CCME */}
+          <div className={styles.projectCard}>
+            <h3 className={styles.projectTitle}>
+              Téléphonie sur IP — Cisco CallManager Express (CCME)
             </h3>
 
-            <p className={styles.cardText}>
-              • Déploiement et configuration d’une infrastructure ToIP avec Cisco CallManager Express <br/>
-              • Configuration VLAN voix et adressage IP des téléphones via DHCP (Option 150 – TFTP) <br/>
-              • Mise en place du service téléphonique (extensions, ephone-dn, ephone) <br/>
-              • Enregistrement et gestion des téléphones IP Cisco <br/>
-              • Configuration du protocole SCCP (Skinny – TCP port 2000) <br/>
-              • Analyse des messages de signalisation (OffHookMessage, StartToneMessage, KeypadButtonMessage) <br/>
-              • Capture et analyse Wireshark du processus d’établissement d’appel <br/>
-              • Mise en place de dial-peer VoIP pour interconnexion entre CallManagers <br/>
-              • Interopérabilité SIP avec Asterisk (configuration sip.conf et extensions.conf) <br/>
-              • Analyse RTP/RTCP : mesure délai, jitter, bande passante et impact des codecs G711 / G723 <br/>
-              • Étude QoS : impact de la réduction de bande passante (clock rate) sur la qualité voix
-            </p>
+            <ul className={styles.projectList}>
+              <li>Installation & configuration CCME (VoIP Cisco)</li>
+              <li>VLAN voix + adressage IP des téléphones via DHCP (Option 150 / TFTP)</li>
+              <li>Extensions & configuration téléphonique (ephone-dn, ephone)</li>
+              <li>SCCP (Skinny) & analyse de signalisation via Wireshark</li>
+              <li>Interconnexion SIP avec Asterisk</li>
+              <li>Analyse RTP/RTCP : latence, jitter, QoS</li>
+            </ul>
+
+            <div className={styles.tags}>
+              <span>CCME</span>
+              <span>VoIP</span>
+              <span>SCCP</span>
+              <span>SIP</span>
+              <span>Wireshark</span>
+              <span>QoS</span>
+            </div>
           </div>
 
-          <div className={styles.card}>
-            <h3 className={styles.cardTitle}>
-              Simulation Réseaux – Cisco Packet Tracer
+          {/* Packet Tracer */}
+          <div className={styles.projectCard}>
+            <h3 className={styles.projectTitle}>
+              Simulation Réseaux — Cisco Packet Tracer
             </h3>
 
-            <p className={styles.cardText}>
-              • Conception et simulation de topologies réseau multi-sites <br/>
-              • Configuration du routage statique et dynamique (RIP v2, OSPF) <br/>
-              • Mise en place de NAT statique, NAT dynamique et PAT <br/>
-              • Configuration et validation du service DHCP <br/>
-              • Segmentation réseau avec VLAN et inter-VLAN routing <br/>
-              • Plan d’adressage IPv4 et découpage en sous-réseaux (FLSM / VLSM) <br/>
-              • Tests de connectivité et validation des flux (ping, traceroute, show commands) <br/>
-              • Analyse des tables de routage et résolution de problèmes réseau
-            </p>
-          </div>
+            <ul className={styles.projectList}>
+              <li>Topologies multi-sites (LAN/WAN) & segmentation réseau</li>
+              <li>Routage statique et dynamique (RIPv2, OSPF)</li>
+              <li>DHCP (dont relais), NAT statique/dynamique & PAT</li>
+              <li>VLAN + inter-VLAN routing</li>
+              <li>Plan d’adressage IPv4 et découpage (FLSM / VLSM)</li>
+              <li>Validation des flux : ping, traceroute, commandes “show”</li>
+            </ul>
 
+            <div className={styles.tags}>
+              <span>Packet Tracer</span>
+              <span>OSPF</span>
+              <span>RIPv2</span>
+              <span>VLAN</span>
+              <span>NAT/PAT</span>
+              <span>DHCP</span>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

@@ -1,103 +1,162 @@
 .container {
   min-height: 100vh;
-  background: linear-gradient(
-    135deg,
-    #0f0c29 0%,
-    #302b63 50%,
-    #ff0055 100%
-  );
-  padding: 120px 80px;
+  padding: 110px 80px 90px;
   color: white;
+
+  background:
+    radial-gradient(circle at 15% 15%, rgba(124, 77, 255, 0.35), transparent 45%),
+    radial-gradient(circle at 85% 70%, rgba(79, 195, 247, 0.25), transparent 45%),
+    linear-gradient(180deg, #0f0f25, #140025);
 }
 
 /* LOGO */
 .logo {
-  width: 90px;
-  border-radius: 20px;
+  width: 86px;
+  border-radius: 22px;
   margin-top: -70px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.35);
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px) scale(1.04);
 }
 
 /* TITLE */
 .title {
-  font-size: 56px;
-  margin-bottom: 80px;
+  font-size: 54px;
+  margin: 10px 0 70px;
   font-weight: 700;
   text-align: center;
+
+  background: linear-gradient(90deg, #4fc3f7, #7c4dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* GRID */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 40px;
+  align-items: start;
 }
 
 /* CARD */
 .card {
-  background: rgba(255,255,255,0.05);
-  padding: 40px;
-  border-radius: 20px;
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+  padding: 38px;
+  border-radius: 22px;
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124, 77, 255, 0.35);
+  box-shadow: 0 26px 70px rgba(0,0,0,0.45);
+}
+
+/* (Optionnel) petit titre dans chaque card si tu as un h3 */
+.card h3 {
+  margin: 0 0 22px;
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0.95;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /* INPUTS */
 .input {
   width: 100%;
-  padding: 14px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.08);
+  padding: 14px 14px;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.14);
+
+  background: rgba(10, 10, 25, 0.35);
   color: white;
   font-size: 15px;
   outline: none;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.input::placeholder {
+  color: rgba(255,255,255,0.55);
+}
+
+.input:focus {
+  border-color: rgba(79, 195, 247, 0.65);
+  box-shadow: 0 0 0 4px rgba(79, 195, 247, 0.12);
+  background: rgba(10, 10, 25, 0.50);
 }
 
 .textarea {
-  height: 140px;
+  height: 150px;
   resize: none;
 }
 
 /* BUTTON */
 .button {
   width: 100%;
-  background: #ff0055;
   padding: 14px;
-  border-radius: 30px;
+  border-radius: 999px;
   border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #4fc3f7, #7c4dff);
   color: white;
   font-weight: 600;
-  cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
+  font-size: 15px;
+
+  box-shadow: 0 14px 40px rgba(124, 77, 255, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 55px rgba(124, 77, 255, 0.40);
+}
+
+.button:active {
+  transform: translateY(0px);
+  opacity: 0.95;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .container {
-    padding: 120px 25px;
+    padding: 95px 18px 70px;
   }
 
   .title {
-    font-size: 32px;
-    margin-bottom: 50px;
+    font-size: 30px;
+    margin-bottom: 40px;
   }
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 18px;
   }
 
-  .logo {
-    margin-top: -90px;
-    margin-bottom: 70px;
-    width: 50px;
+  .card {
+    padding: 22px;
+  }
+
+}
+
+@media (max-width: 420px) {
+  .title {
+    font-size: 26px;
+  }
+
+  .input {
+    font-size: 14px;
   }
 }

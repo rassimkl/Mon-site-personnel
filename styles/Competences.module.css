@@ -1,0 +1,144 @@
+/* ============================= */
+/* SECTION */
+/* ============================= */
+
+.section {
+  padding: 140px 20px;
+  text-align: center;
+
+  background: linear-gradient(
+    180deg,
+    #f5f7ff,
+    #eef1ff
+  );
+
+  color: #1a1a2e;
+}
+
+/* ============================= */
+/* TITLE */
+/* ============================= */
+
+.title {
+  font-size: 42px;
+  margin-bottom: 90px;
+  font-weight: 600;
+  color: #2b2d42;
+}
+
+/* ============================= */
+/* GRID */
+/* ============================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 50px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ============================= */
+/* CARD */
+/* ============================= */
+
+.card {
+  background: white;
+  border-radius: 25px;
+  padding: 50px 35px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+/* ============================= */
+/* ICON */
+/* ============================= */
+
+.icon {
+  font-size: 45px;
+  margin-bottom: 25px;
+}
+
+/* ============================= */
+/* TEXT */
+/* ============================= */
+
+.card h3 {
+  margin-bottom: 18px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #222;
+}
+
+.card p {
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/* TAGS */
+/* ============================= */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.tags span {
+  background: #f0f2ff;
+  color: #4c4f6b;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 14px;
+  border: 1px solid #e0e3ff;
+}
+
+/* ============================= */
+/* BUTTON */
+/* ============================= */
+
+.button {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 500;
+  color: white;
+
+  background: linear-gradient(135deg, #4fc3f7, #7c4dff);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(124,77,255,0.35);
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  .title {
+    font-size: 30px;
+    margin-bottom: 60px;
+  }
+
+  .card {
+    padding: 40px 25px;
+  }
+
+  .card h3 {
+    font-size: 20px;
+  }
+}

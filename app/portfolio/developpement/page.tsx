@@ -1,154 +1,179 @@
 "use client";
 
-import Link from "next/link";
 import styles from "../../../styles/DeveloppementPage.module.css";
+import { Database, Smartphone, Rocket, Server } from "lucide-react";
 
-export default function DeveloppementPage() {
+export default function Developpement() {
   return (
-    <div className={styles.container}>
-      
-      <div className={styles.overlay} />
+    <div className={styles.page}>
 
-      {/* LOGO */}
-      <Link href="/" className={styles.logoLink}>
-        <img
-          src="/images/logo.png"
-          alt="Logo"
-          className={styles.logo}
-        />
-      </Link>
+      {/* HERO */}
+      <section className={styles.hero}>
+        <h1>Mes travaux en développement</h1>
+        <p>
+          Applications web & mobile – architecture backend, API sécurisées et déploiement.
+        </p>
+      </section>
 
-      <div className={styles.content}>
+      {/* EXPERIENCE */}
+      <section className={styles.section}>
+        <div className={styles.experienceCard}>
+          <Server size={28} className={styles.icon} />
 
-        <div style={{ marginTop: "30px", marginBottom: "20px" }}>
-          <Link href="/portfolio" className={styles.backLink}>
-            ← Retour
-          </Link>
+          <div>
+            <h2>Développeur Full Stack – The Inspire Academy</h2>
+            <span className={styles.period}>Octobre 2025 – Mars 2026</span>
+
+              <p>
+                Intervention sur une application interne de gestion développée en PHP / Laravel.
+                L’application ayant déjà été conçue, j’interviens sur son évolution :
+                ajout de nouvelles fonctionnalités, amélioration des performances
+                et optimisation de l’architecture existante.
+              </p>
+
+            <br/> 
+              <p>
+                En parallèle, je travaille également sur le site public de l’entreprise
+                sous WordPress : amélioration de la fluidité, optimisation des pages,
+                mise à jour des contenus et intégration de nouvelles fonctionnalités.
+              </p>
+
+              <br/>
+              <p>
+                Je développe actuellement une application mobile avec un backend
+                en Java / Spring Boot et un frontend en React Native,
+                incluant la mise en place d’API REST sécurisées (JWT),
+                la conteneurisation avec Docker et le déploiement automatisé via CI/CD.
+              </p>
+
+            <div className={styles.tags}>
+              <span>Laravel</span>
+              <span>Spring Boot</span>
+              <span>React Native</span>
+              <span>Docker</span>
+            </div>
+
+              <a
+                href="https://github.com/rassimkl/inspireAcademy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.projectLink}
+              >
+                Voir le code du site Laravel sur GitHub →
+              </a>
+
+              <br/>
+              <a
+                href="https://github.com/rassimkl/AppliMobileIA_API"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.projectLink}
+              >
+                Voir le code de l'application mobile (Backend) sur GitHub →
+              </a>
+
+              <br/>
+              <a
+                href="https://github.com/rassimkl/AppliMobileIAFront"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.projectLink}
+              >
+                Voir le code de l'application mobile (Frontend) sur GitHub →
+              </a>
+          </div>
         </div>
+      </section>
 
-        {/* HEADER */}
-        <div className={styles.header}>
-          <h1 className={styles.title}>
-            Développeur Web & Mobile - Full Stack
-          </h1>
-
-          <p className={styles.paragraph}>
-            Développeur Web & Mobile Full Stack, je conçois et développe des
-            applications web et mobiles modernes, en maîtrisant aussi bien le
-            front-end, le back-end que la gestion des bases de données et des
-            environnements de déploiement. <br /> <br />
-            • Frontend : React.js, Next.js, Vue.js, HTML, CSS, JavaScript,
-            Tailwind CSS, Bootstrap <br />
-            • Backend : Java (Spring Boot), PHP (Laravel), développement d’API
-            REST sécurisées <br />
-            • Mobile : React Native (applications cross-platform) <br />
-            • Bases de données : PostgreSQL, MySQL, SQL <br />
-            • Architecture : POO, Design Patterns, modélisation UML <br />
-            • Outils & DevOps : Git/GitHub, Postman, Docker, VS Code, XAMPP,
-            Tomcat <br />
-            • CMS : WordPress
-          </p>
-        </div>
-
-        {/* EXPÉRIENCE */}
+      {/* PROJETS */}
+      <section className={styles.section}>
         <h2 className={styles.sectionTitle}>
-          Expérience Professionnelle
+          Projets académiques & personnels
         </h2>
-
-        <div className={styles.card}>
-          <h3 className={styles.cardTitle}>
-            Développeur Web & Mobile – The Inspire Academy (stage)
-          </h3>
-          <p className={styles.cardSub}>
-            Octobre 2025 – Mars 2026 | Biarritz
-          </p>
-
-          <p className={styles.cardText}>
-            • J'interviens sur l'application web interne de l'école développée
-            en PHP/Laravel (amélioration de fonctionnalités existantes, ajout de
-            nouvelles fonctionnalités). <br />
-            • Je travaille sur le site publique de l'école créé avec Wordpress
-            (fluidités, contenu, création de nouvelles pages et
-            fonctionnalités). <br />
-            • Je développe une application mobile avec backend (Java/Spring
-            Boot) et Frontend (React Native).
-          </p>
-        </div>
-
-        {/* PROJETS */}
-        <h2 className={styles.sectionTitle}>Mes projets</h2>
 
         <div className={styles.projectsGrid}>
 
-          {/* PROJET 1 */}
-          <div className={`${styles.card} ${styles.cardSmall}`}>
-            <h3 className={styles.cardTitle}>
-              Application Mobile "The Inspire Academy"
+          <div className={styles.projectCard}>
+            <h3 className={styles.projectTitle}>
+              Portfolio Full Stack – Next.js
             </h3>
 
-            <p className={styles.cardText}>
-              • Backend : Java, Spring Boot, API REST sécurisée <br />
-              • Base de données : PostgreSQL <br />
-              • Authentification : JWT <br />
-              • Architecture : séparation Controller / Service / Repository <br />
-              • Frontend mobile : React Native (application cross-platform) <br />
-              • Communication via API REST
+            <p>
+              Application moderne avec API sécurisées. <br/>
+              JWT et base PostgreSQL. <br/>
+              Architecture modulaire avec App Router.
             </p>
+
+            <div className={styles.tags}>
+              <span>Next.js</span>
+              <span>TypeScript</span>
+              <span>JavaScript</span>
+              <span>css</span>
+              <span>PostgreSQL</span>
+              <span>JWT</span>
+            </div>
+              <a
+                href="https://github.com/rassimkl/Mon-site-personnel"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.projectLink}
+              >
+                Voir le code sur GitHub →
+              </a>
           </div>
 
-          {/* PROJET 2 */}
-          <div className={`${styles.card} ${styles.cardSmall}`}>
-            <h3 className={styles.cardTitle}>Mon site "portfolio"</h3>
+          <div className={styles.projectCard}>
+            <h3 className={styles.projectTitle}>
+              Application de gestion de patients dans un hopital
+            </h3>
+            
+            <h4>Projet de fin de cycle Licence</h4>
 
-            <p className={styles.cardText}>
-              • Développement avec Next.js (App Router) <br />
-              • API Routes sécurisées <br />
-              • Authentification administrateur avec JWT <br />
-              • Hashage des mots de passe avec bcrypt <br />
-              • Base de données PostgreSQL <br />
-              • Upload et gestion de documents <br />
-              • Routing dynamique <br />
-              • Architecture modulaire
+            <br/>
+            
+            <p>
+              Application web multi-rôles avec backend PHP/MySQL. <br/>
+              Modélisation UML et architecture relationnelle optimisée.
             </p>
+
+            <div className={styles.tags}>
+              <span>HTML5</span>
+              <span>CSS</span>
+              <span>Bootstrap</span>
+              <span>JavaScript</span>
+              <span>PHP</span>
+              <span>MySQL</span>
+            </div>
+
+              <a
+                href="/documents/rapport_projet_fin_de_cycle_(licence).pdf"
+                target="_blank"
+                className={styles.projectLink}
+              >
+                Consulter le rapport de fin de cycle licence (PDF) →
+              </a>
           </div>
 
-          {/* PROJET 3 */}
-          <div className={`${styles.card} ${styles.cardSmall}`}>
-            <h3 className={styles.cardTitle}>
-              Application de Gestion de Patients
+          <div className={styles.projectCard}>
+            <h3 className={styles.projectTitle}>
+              Application météo – Vue.js
             </h3>
 
-            <p className={styles.cardText}>
-              • Analyse et spécification des besoins <br />
-              • Modélisation UML (cas d’utilisation, séquence, activité,
-              diagramme de classes) <br />
-              • Conception du modèle relationnel et dictionnaire de données <br />
-              • Authentification multi-rôles (Administrateur, Médecin, Agent de
-              saisie) <br />
-              • Gestion complète des patients : admission, modification,
-              archivage <br />
-              • Génération et impression de documents administratifs <br />
-              • Calcul de statistiques (naissances, décès, hospitalisations) <br />
-              • Frontend : HTML, CSS, JavaScript, Bootstrap <br />
-              • Backend : PHP <br />
-              • Base de données : MySQL (phpMyAdmin, XAMPP)
+            <p>
+              SPA développée en Vue.js avec intégration de l’API OpenWeatherMap
+              et gestion asynchrone des données.
             </p>
-          </div>
 
-          {/* PROJET 4 */}
-          <div className={`${styles.card} ${styles.cardSmall}`}>
-            <h3 className={styles.cardTitle}>Application Météo</h3>
-
-            <p className={styles.cardText}>
-              • Application web développée avec Vue.js <br />
-              • Intégration de l’API OpenWeatherMap <br />
-              • Récupération et affichage dynamique des données météo <br />
-              • Utilisation de requêtes asynchrones
-            </p>
+            <div className={styles.tags}>
+              <span>Vue.js</span>
+              <span>API REST</span>
+              <span>JavaScript</span>
+            </div>
           </div>
 
         </div>
-      </div>
+      </section>
+
     </div>
   );
 }

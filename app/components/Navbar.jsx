@@ -1,56 +1,74 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "../../styles/Navbar.module.css";
+import AdminModal from "./AdminModal";
 
-export default function Navbar({ onAdminClick, isAdmin, onLogout }) {
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const adminStatus = localStorage.getItem("isAdmin");
+    if (adminStatus === "true") {
+      setIsAdmin(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("isAdmin");
+    setIsAdmin(false);
+  };
+
   return (
-    <nav className={styles.navbar}>
-      {/* LOGO */}
-      <Link href="/">
-        <img
-          src="/images/logo.png"
-          alt="logo"
-          className={styles.logo}
-        />
-      </Link>
+    <>
+      <button
+        className={styles.menuToggle}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? "✕" : "☰"}
+      </button>
 
-      {/* MENU */}
-      <div className={styles.menu}>
-        {[
-          { label: "Mon portfolio", href: "/portfolio" },
-          { label: "Mes documents", href: "/documents" },
-          { label: "Me contacter", href: "/contact" },
-        ].map((item) => (
-          <Link
-            key={item.label}
-            href={item.href}
-            className={styles.link}
-          >
-            {item.label}
+      <nav className={`${styles.navbar} ${isOpen ? styles.active : ""}`}>
+        <div className={styles.panel}>
+          <Link href="/" className={styles.link} onClick={() => setIsOpen(false)}>
+            Accueil
           </Link>
-        ))}
-        
-      </div>
 
-      {/* ADMIN */}
-      <div>
-        {!isAdmin ? (
-          <button
-            onClick={onAdminClick}
-            className={styles.adminIcon}
-          >
-            ⚙
-          </button>
-        ) : (
-          <button
-            onClick={onLogout}
-            className={styles.logoutBtn}
-          >
-            Déconnexion
-          </button>
-        )}
-      </div>
-    </nav>
+          <Link href="/contact" className={styles.link} onClick={() => setIsOpen(false)}>
+            Me contacter
+          </Link>
+
+          {!isAdmin ? (
+            <button
+              onClick={() => setShowModal(true)}
+              className={styles.adminIcon}
+            >
+              ⚙
+            </button>
+          ) : (
+            <button
+              onClick={handleLogout}
+              className={styles.logoutBtn}
+            >
+              Déconnexion
+            </button>
+          )}
+        </div>
+      </nav>
+
+      {showModal && (
+        <AdminModal
+          onClose={() => setShowModal(false)}
+          onSuccess={() => {
+            localStorage.setItem("isAdmin", "true");
+            setIsAdmin(true);
+            setShowModal(false);
+          }}
+        />
+      )}
+    </>
   );
 }

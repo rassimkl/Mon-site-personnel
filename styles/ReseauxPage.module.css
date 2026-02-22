@@ -1,143 +1,252 @@
-/* ============================= */
-/* GLOBAL */
-/* ============================= */
-
-.container {
-  min-height: 100vh;
-  position: relative;
-  padding: 140px 80px;
+.page {
+  background: linear-gradient(180deg, #0f0f25, #140025);
   color: white;
-
-  background-image: url("/images/network-bg.jpg");
-  background-size: cover;
-  background-position: center;
+  padding-bottom: 100px;
 }
 
-/* OVERLAY */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(10,30,40,0.92),
-    rgba(20,60,80,0.9)
-  );
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 100px 20px 60px;
 }
 
-/* LOGO */
-.logoLink {
-  position: absolute;
-  top: 40px;
-  left: 60px;
-  z-index: 1000;
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #4fc3f7, #7c4dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.logo {
-  width: 70px;
-  border-radius: 18px;
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-/* CONTENT */
-.content {
-  position: relative;
-  z-index: 2;
-}
-
-/* RETOUR */
-.backLink {
-  color: white;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.4);
-  padding: 8px 20px;
-  border-radius: 20px;
-  backdrop-filter: blur(8px);
-}
-
-/* HEADER */
-.header {
+.hero p {
+  opacity: 0.85;
   max-width: 900px;
-  margin-bottom: 80px;
+  margin: 0 auto;
 }
 
-.title {
-  font-size: 52px;
-  margin-bottom: 25px;
+/* SECTION */
+.section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
 }
 
-.paragraph {
-  opacity: 0.9;
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-/* SECTION TITLE */
 .sectionTitle {
-  margin-bottom: 30px;
+  font-size: 28px;
+  margin-bottom: 40px;
 }
 
-/* GRID */
+/* COMPETENCES CARD (comme tes screenshots) */
+.skillsCard {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 35px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.skillsIntro {
+  opacity: 0.9;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+
+.skillsList {
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+.skillsList li {
+  margin: 6px 0;
+}
+
+/* TAGS (on réutilise ton style) */
+.tags {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags span {
+  background: rgba(124, 77, 255, 0.22);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* PROJECTS GRID */
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
 }
 
-/* CARD */
-.card {
-  background: linear-gradient(
-    135deg,
-    rgba(255,255,255,0.12),
-    rgba(255,255,255,0.05)
-  );
+.projectCard {
+  background: rgba(255, 255, 255, 0.06);
   padding: 30px;
-  border-radius: 25px;
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  transition: 0.3s ease;
 }
 
-.cardTitle {
-  margin-bottom: 15px;
+.projectCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(79, 195, 247, 0.12);
 }
 
-.cardText {
-  opacity: 0.85;
+.projectTitle {
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #4fc3f7, #7c4dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+.projectList {
+  margin: 0;
+  padding-left: 18px;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+.projectList li {
+  margin: 6px 0;
+}
+
+/* Optionnel : lien comme dans dev */
+.projectLink {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  background: linear-gradient(90deg, #4fc3f7, #7c4dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.3s ease;
+}
+
+.projectLink:hover {
+  opacity: 0.7;
+}
+
+/* Responsive */
 /* ============================= */
 /* RESPONSIVE MOBILE */
 /* ============================= */
 
 @media (max-width: 768px) {
 
-  .container {
-    padding: 120px 25px 60px 25px;
+  /* HERO */
+  .hero {
+    padding: 85px 16px 35px;
   }
 
-  .logoLink {
-    top: 25px;
-    left: 20px;
+  .hero h1 {
+    font-size: 28px;
+    line-height: 1.15;
   }
 
-  .logo {
-    width: 55px;
+  .hero p {
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 0 6px;
   }
 
-  .title {
-    font-size: 30px;
+  /* SECTIONS */
+  .section {
+    margin: 35px auto;
+    padding: 0 16px;
   }
 
-  .paragraph {
-    font-size: 15px;
+  .sectionTitle {
+    font-size: 20px;
+    margin-bottom: 22px;
   }
 
+  /* EXPERIENCE */
+  .experienceCard {
+    flex-direction: column;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .period {
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+
+  /* supprime l’icône sur mobile si tu veux (optionnel) */
+  .icon {
+    display: none;
+  }
+
+  /* Projets */
   .projectsGrid {
-    grid-template-columns: 1fr; /* 1 colonne mobile */
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
-  .card {
-    padding: 20px;
+  .projectCard {
+    padding: 18px;
   }
 
+  .projectTitle {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  /* Tags */
+  .tags {
+    gap: 8px;
+  }
+
+  .tags span {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  /* Liens (GitHub / PDF) */
+  .projectLink {
+    font-size: 13px;
+    margin-top: 14px;
+  }
+
+  /* Listes (réseau) */
+  .skillsList,
+  .projectList {
+    padding-left: 16px;
+    line-height: 1.7;
+  }
+
+  .skillsList li,
+  .projectList li {
+    margin: 5px 0;
+  }
+}
+
+/* Très petits écrans */
+@media (max-width: 420px) {
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .projectCard,
+  .experienceCard {
+    border-radius: 16px;
+  }
+
+  .tags span {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
 }
