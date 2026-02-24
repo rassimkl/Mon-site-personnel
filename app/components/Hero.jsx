@@ -7,13 +7,22 @@ export default function Hero() {
   return (
     <section className={styles.hero}>
 
-      {/* Overlay gradient */}
       <div className={styles.overlay} />
-
-      {/* Effet lumière */}
       <div className={styles.lightEffect} />
 
       <div className={styles.content}>
+
+        {/* PROFILE */}
+        <div className={styles.profile}>
+          <img
+            src="/images/ph_pro.jpeg"
+            alt="Rassim Kloul"
+            className={styles.avatar}
+          />
+          <h2 className={styles.name}>Rassim KLOUL</h2>
+        </div>
+
+        {/* TITLE */}
         <h1 className={styles.title}>
           Ingénieur IT
           <span className={styles.highlight}> Développement Web & Mobile </span>
@@ -21,11 +30,16 @@ export default function Hero() {
         </h1>
 
         <p className={styles.subtitle}>
-        Je conçois des infrastructures sécurisées et développe des applications web et mobiles performantes basées sur des architectures modernes.
+          Je conçois des infrastructures sécurisées et développe des
+          applications web et mobiles performantes basées sur des architectures modernes.
         </p>
 
         <div className={styles.buttons}>
-          <a href="https://www.linkedin.com/in/rassim-kloul-ba5b842a5/" className={styles.primaryBtn}>
+          <a
+            href="https://www.linkedin.com/in/rassim-kloul-ba5b842a5/"
+            className={styles.primaryBtn}
+            target="_blank"
+          >
             LinkedIn
           </a>
 
@@ -33,6 +47,7 @@ export default function Hero() {
             Me contacter
           </Link>
         </div>
+
       </div>
     </section>
   );
