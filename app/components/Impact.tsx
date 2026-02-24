@@ -136,6 +136,28 @@ export default function Impact() {
             </p>
           </motion.div>
 
+              {/* VoIP */}
+              <motion.div
+                className={styles.block}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <motion.div
+                  className={styles.bigNumber}
+                  animate={isInView ? { scale: [0.8, 1.1, 1] } : {}}
+                  transition={{ duration: 0.6 }}
+                >
+                  📶
+                </motion.div>
+
+                <h3>Optimisation des communications VoIP</h3>
+                <p>
+                  Mise en place de mécanismes QoS permettant la priorisation
+                  du trafic voix, réduisant la latence et améliorant
+                  la stabilité des communications internes.
+                </p>
+              </motion.div>
 
         </div>
       </div>

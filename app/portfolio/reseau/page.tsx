@@ -36,125 +36,143 @@ export default function Reseau() {
           </ul>
 
           <div className={styles.tags}>
-            <span>OSI / TCP-IP</span>
+            <span>OSI</span>
+            <span>TCP/IP</span>
+            <span>IPv4 / IPv6</span>
             <span>VLAN</span>
+            <span>Inter-VLAN</span>
             <span>OSPF</span>
+            <span>RIPv2</span>
             <span>NAT / PAT</span>
-            <span>Wireshark</span>
-            <span>Linux</span>
+            <span>DHCP</span>
+            <span>DNS</span>
+            <span>LAN / WAN</span>
+            <span>Cisco</span>
+            <span>Cisco Packet Tracer</span>
+            <span>GNS3</span>
             <span>CCME</span>
+            <span>VoIP</span>
+            <span>SIP / SCCP</span>
+            <span>QoS</span>
+            <span>Wireshark</span>
+            <span>LDAP</span>
+            <span>NFS</span>
+            <span>Bash / shell</span>
+            <span>SSH</span>
+            <span>Firewall</span>
           </div>
         </div>
       </section>
 
       {/* PROJETS */}
-      <section className={styles.section}>
-        <h2 className={styles.sectionTitle}>Mes projets</h2>
+<section className={styles.section}>
+  <h2 className={styles.sectionTitle}>Mes projets</h2>
 
-        <div className={styles.projectsGrid}>
-          {/* Linux multi-serveurs */}
-          <div className={styles.projectCard}>
-            <h3 className={styles.projectTitle}>
-              Administration Système Linux — Infrastructure multi-serveurs
-            </h3>
+  <div className={styles.projectsGrid}>
 
-            <ul className={styles.projectList}>
-              <li>Installation Debian sous VirtualBox / VMware</li>
-              <li>Mise en place DHCP & DNS (primaire / secondaire)</li>
-              <li>Déploiement d’un annuaire LDAP (serveur + clients PAM)</li>
-              <li>Partage NFS, serveur Web Apache, serveur Mail Postfix</li>
-              <li>Automatisation Bash (utilisateurs, sauvegardes) + planification cron</li>
-              <li>Sécurisation : SSH, firewall, règles hosts.allow / hosts.deny</li>
-            </ul>
+    {/* VoIP CCME */}
+    <div className={styles.projectCard}>
+      <h3 className={styles.projectTitle}>
+        Déploiement d’une infrastructure VoIP Cisco (CCME)
+      </h3>
 
-            <div className={styles.tags}>
-              <span>Debian</span>
-              <span>DHCP</span>
-              <span>DNS</span>
-              <span>LDAP</span>
-              <span>NFS</span>
-              <span>Bash</span>
-            </div>
+      <ul className={styles.projectList}>
+        <li>Installation et configuration de Cisco CallManager Express</li>
+        <li>Mise en place d’un VLAN voix et attribution IP via DHCP (Option 150)</li>
+        <li>Configuration des téléphones IP (ephone-dn / ephone)</li>
+        <li>Interconnexion SIP avec Asterisk</li>
+        <li>Analyse des flux SCCP / RTP via Wireshark</li>
+        <li>Mise en place de mécanismes QoS pour la priorisation du trafic VoIP</li>
+      </ul>
 
-            {/* Optionnel : lien vers PDF si tu en as un */}
-            {/* <a href="/documents/rapport-linux.pdf" target="_blank" className={styles.projectLink}>Voir le rapport (PDF) →</a> */}
-          </div>
+      <div className={styles.tags}>
+        <span>CCME</span>
+        <span>VoIP</span>
+        <span>SIP</span>
+        <span>SCCP</span>
+        <span>QoS</span>
+        <span>Wireshark</span>
+      </div>
+    </div>
 
-          {/* Sockets C */}
-          <div className={styles.projectCard}>
-            <h3 className={styles.projectTitle}>
-              Programmation Réseau — Sockets TCP/UDP (C)
-            </h3>
+    {/* Réseau multi-sites */}
+    <div className={styles.projectCard}>
+      <h3 className={styles.projectTitle}>
+        Conception et simulation d’un réseau multi-sites (Cisco)
+      </h3>
 
-            <ul className={styles.projectList}>
-              <li>Applications client/serveur en C</li>
-              <li>Communication UDP (SOCK_DGRAM) & TCP (SOCK_STREAM)</li>
-              <li>Appels systèmes : socket(), bind(), connect(), listen(), accept()</li>
-              <li>Échanges : send(), recv(), sendto(), recvfrom(), read(), write()</li>
-              <li>Résolution DNS : gethostbyname()</li>
-              <li>Gestion des connexions itératives/parallèles (fork)</li>
-            </ul>
+      <ul className={styles.projectList}>
+        <li>Conception d’une topologie LAN/WAN segmentée</li>
+        <li>Configuration VLAN & inter-VLAN routing</li>
+        <li>Routage statique et dynamique (OSPF, RIPv2)</li>
+        <li>Mise en place DHCP avec relais</li>
+        <li>Configuration NAT statique/dynamique & PAT</li>
+        <li>Plan d’adressage IPv4 (FLSM / VLSM)</li>
+        <li>Validation des flux (ping, traceroute, commandes show)</li>
+      </ul>
 
-            <div className={styles.tags}>
-              <span>C</span>
-              <span>TCP</span>
-              <span>UDP</span>
-              <span>Client/Serveur</span>
-              <span>DNS</span>
-            </div>
-          </div>
+      <div className={styles.tags}>
+        <span>IPv4</span>
+        <span>OSPF</span>
+        <span>RIPv2</span>
+        <span>DHCP</span>
+        <span>VLAN</span>
+        <span>NAT / PAT</span>
+        <span>FLSM / VLSM</span>
+      </div>
+    </div>
 
-          {/* VoIP CCME */}
-          <div className={styles.projectCard}>
-            <h3 className={styles.projectTitle}>
-              Téléphonie sur IP — Cisco CallManager Express (CCME)
-            </h3>
+    {/* Linux multi-serveurs */}
+    <div className={styles.projectCard}>
+      <h3 className={styles.projectTitle}>
+        Administration d’une infrastructure Linux multi-serveurs
+      </h3>
 
-            <ul className={styles.projectList}>
-              <li>Installation & configuration CCME (VoIP Cisco)</li>
-              <li>VLAN voix + adressage IP des téléphones via DHCP (Option 150 / TFTP)</li>
-              <li>Extensions & configuration téléphonique (ephone-dn, ephone)</li>
-              <li>SCCP (Skinny) & analyse de signalisation via Wireshark</li>
-              <li>Interconnexion SIP avec Asterisk</li>
-              <li>Analyse RTP/RTCP : latence, jitter, QoS</li>
-            </ul>
+      <ul className={styles.projectList}>
+        <li>Déploiement Debian sous VirtualBox / VMware</li>
+        <li>Configuration services réseau : DHCP, DNS</li>
+        <li>Mise en place d’un annuaire LDAP</li>
+        <li>Partage réseau NFS</li>
+        <li>Sécurisation SSH et règles firewall</li>
+        <li>Automatisation via scripts Bash</li>
+      </ul>
 
-            <div className={styles.tags}>
-              <span>CCME</span>
-              <span>VoIP</span>
-              <span>SCCP</span>
-              <span>SIP</span>
-              <span>Wireshark</span>
-              <span>QoS</span>
-            </div>
-          </div>
+      <div className={styles.tags}>
+        <span>Debian</span>
+        <span>DNS</span>
+        <span>DHCP</span>
+        <span>LDAP</span>
+        <span>NFS</span>
+        <span>Bash</span>
+        <span>SSH / Firewall</span>
+      </div>
+    </div>
 
-          {/* Packet Tracer */}
-          <div className={styles.projectCard}>
-            <h3 className={styles.projectTitle}>
-              Simulation Réseaux — Cisco Packet Tracer
-            </h3>
+    {/* Sockets C */}
+    <div className={styles.projectCard}>
+      <h3 className={styles.projectTitle}>
+        Implémentation d’une architecture client/serveur en C (TCP/UDP)
+      </h3>
 
-            <ul className={styles.projectList}>
-              <li>Topologies multi-sites (LAN/WAN) & segmentation réseau</li>
-              <li>Routage statique et dynamique (RIPv2, OSPF)</li>
-              <li>DHCP (dont relais), NAT statique/dynamique & PAT</li>
-              <li>VLAN + inter-VLAN routing</li>
-              <li>Plan d’adressage IPv4 et découpage (FLSM / VLSM)</li>
-              <li>Validation des flux : ping, traceroute, commandes “show”</li>
-            </ul>
+      <ul className={styles.projectList}>
+        <li>Gestion des connexions via socket(), bind(), listen(), accept()</li>
+        <li>Communication TCP (SOCK_STREAM) & UDP (SOCK_DGRAM)</li>
+        <li>Échanges via send(), recv(), read(), write()</li>
+        <li>Résolution DNS (gethostbyname())</li>
+        <li>Gestion de connexions concurrentes avec fork()</li>
+        <li>Analyse du comportement TCP/UDP au niveau transport</li>
+      </ul>
 
-            <div className={styles.tags}>
-              <span>Packet Tracer</span>
-              <span>OSPF</span>
-              <span>RIPv2</span>
-              <span>VLAN</span>
-              <span>NAT/PAT</span>
-              <span>DHCP</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className={styles.tags}>
+        <span>C</span>
+        <span>TCP</span>
+        <span>UDP</span>
+        <span>Client/Serveur</span>
+      </div>
+    </div>
+
+  </div>
+</section>
     </div>
   );
 }

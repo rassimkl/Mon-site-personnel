@@ -80,8 +80,8 @@
 /* PROJECTS GRID */
 .projectsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 }
 
 .projectCard {
@@ -240,6 +240,9 @@
     font-size: 13px;
   }
 
+  .projectsGrid {
+  grid-template-columns: 1fr;
+}
   .projectCard,
   .experienceCard {
     border-radius: 16px;
