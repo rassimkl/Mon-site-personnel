@@ -1,0 +1,192 @@
+/* ============================= */
+/* SECTION */
+/* ============================= */
+
+.section {
+  padding: 140px 20px;
+  background: linear-gradient(180deg, #f8f9fd, #eef1f9);
+}
+
+.wrapper {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+/* ============================= */
+/* TITLE */
+/* ============================= */
+
+.title {
+  font-size: 36px;
+  margin-bottom: 70px;
+  font-weight: 600;
+
+  background: linear-gradient(90deg, #4fc3f7, #7c4dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================= */
+/* CARD – FEUILLE */
+/* ============================= */
+
+.card {
+  position: relative;
+  background: #ffffff;
+  padding: 60px 50px;
+  border-radius: 14px;
+
+  /* rotation légère feuille */
+  transform: rotate(-1deg);
+  transition: 0.4s ease;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.08),
+    0 80px 160px rgba(0,0,0,0.06);
+
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* hover premium */
+.card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* texture papier */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px);
+  background-size: 4px 4px;
+  pointer-events: none;
+  border-radius: 14px;
+}
+
+/* ============================= */
+/* BADGE */
+/* ============================= */
+
+.badge {
+  position: absolute;
+  top: -18px;
+  right: 30px;
+
+  background: linear-gradient(90deg, #4fc3f7, #7c4dff);
+  color: white;
+
+  font-size: 12px;
+  padding: 6px 14px;
+  border-radius: 30px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  box-shadow: 0 10px 25px rgba(124,77,255,0.3);
+}
+
+/* ============================= */
+/* LOGO */
+/* ============================= */
+
+.companyLogo img {
+  width: 120px;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+/* ============================= */
+/* QUOTE */
+/* ============================= */
+
+.quoteIcon {
+  color: #7c4dff;
+  margin-bottom: 20px;
+}
+
+/* ============================= */
+/* TEXT */
+/* ============================= */
+
+.text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #1a1a2e;
+  margin-bottom: 60px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================= */
+/* SIGNATURE */
+/* ============================= */
+
+.signature {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 40px;
+}
+
+.signatureSvg {
+  width: 260px;
+  margin-bottom: 10px;
+}
+
+.signatureTitle {
+  font-size: 16px;
+  opacity: 0.9;
+  text-align: right;
+}
+.signatureNom {
+  font-size: 16px;
+  opacity: 0.9;
+  text-align: right;
+  margin-right: 80px;
+}
+
+.attestationLink {
+  margin-top: 18px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+
+  background: linear-gradient(90deg, #4fc3f7, #7c4dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: 0.3s ease;
+}
+
+.attestationLink:hover {
+  opacity: 0.7;
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  .card {
+    padding: 40px 25px;
+    transform: rotate(0deg);
+  }
+
+  .title {
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
+
+  .badge {
+    right: 15px;
+  }
+
+  .signature {
+    text-align: center;
+  }
+
+}

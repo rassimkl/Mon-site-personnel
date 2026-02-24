@@ -1,0 +1,98 @@
+.section {
+  padding: 70px 0;
+  background: linear-gradient(90deg, #f8f9fd, #eef1f9);
+  overflow: hidden;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* léger fade sur les côtés */
+.marquee::before,
+.marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+}
+
+.marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #f8f9fd, transparent);
+}
+
+.marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #eef1f9, transparent);
+}
+
+.track {
+  display: flex;
+  gap: 70px;
+  width: max-content;
+  animation: scroll 22s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ============================= */
+/* ITEMS */
+/* ============================= */
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+
+  background: linear-gradient(90deg, #4fc3f7, #7c4dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  transition: 0.3s ease;
+}
+
+.icon {
+  font-size: 22px;
+  display: flex;
+}
+
+/* léger effet hover */
+.item:hover {
+  transform: scale(1.08);
+}
+
+/* pause au hover */
+.marquee:hover .track {
+  animation-play-state: paused;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .item {
+    font-size: 14px;
+  }
+
+  .icon {
+    font-size: 18px;
+  }
+
+  .track {
+    gap: 40px;
+  }
+}

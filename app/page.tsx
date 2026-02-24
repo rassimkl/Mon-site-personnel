@@ -6,6 +6,11 @@ import Navbar from "./components/Navbar";
 import AdminModal from "./components/AdminModal";
 import Parcours from "./components/Parcours";
 import Competences from "./components/Competences"; // ✅ AJOUT
+import Impact from "./components/Impact";
+import Confiance from "./components/Confiance";
+import Recommandation from "./components/Recommandation";
+import StackMarquee from "./components/StackMarquee";
+import FinalCTA from "./components/FinalCTA";
 
 export default function Home() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -44,6 +49,16 @@ export default function Home() {
 
       {/* ✅ SECTION COMPÉTENCES */}
       <Competences />
+      
+      <Impact />
+
+      <Confiance />
+
+      <Recommandation />
+
+      <FinalCTA />
+
+      <StackMarquee />
 
       {showModal && (
         <AdminModal

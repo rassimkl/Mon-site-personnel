@@ -1,0 +1,102 @@
+.section {
+  padding: 140px 20px;
+  background: linear-gradient(180deg, #f8f9fd, #eef1f9);
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* ============================= */
+/* TITLE */
+/* ============================= */
+
+.title {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 25px;
+
+  background: linear-gradient(90deg, #4fc3f7, #7c4dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 45px;
+  color: #1a1a2e;
+  opacity: 0.85;
+}
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  color: white;
+
+  background: linear-gradient(90deg, #4fc3f7, #7c4dff);
+  box-shadow: 0 10px 25px rgba(124,77,255,0.3);
+
+  transition: 0.3s ease;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(124,77,255,0.4);
+}
+
+.secondaryBtn {
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+
+  color: #4fc3f7;
+  border: 2px solid #4fc3f7;
+
+  transition: 0.3s ease;
+}
+
+.secondaryBtn:hover {
+  background: #4fc3f7;
+  color: white;
+  transform: translateY(-4px);
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+  }
+}

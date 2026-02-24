@@ -23,8 +23,11 @@ export default function Competences() {
 
           <div className={styles.tags}>
             <span>Java / Spring Boot</span>
+            <span>Architecture en couches</span>
             <span>PHP / Laravel</span>
+            <span>Architecture MVC</span>
             <span>React / React Native</span>
+            <span>JavaScript / TypeScript</span>
             <span>PostgreSQL</span>
             <span>Docker & CI/CD</span>
           </div>

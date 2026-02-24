@@ -47,10 +47,15 @@ export default function Developpement() {
               </p>
 
             <div className={styles.tags}>
-              <span>Laravel</span>
-              <span>Spring Boot</span>
-              <span>React Native</span>
+              <span>PHP / Laravel</span>
+              <span>Architecture MVC</span>
+              <span>Spring Boot / Java</span>
+              <span>Architecture en couches</span>
+              <span>Authentification JWT</span>
+              <span>React Native / JavaScript / TypeScript</span>
               <span>Docker</span>
+              <span>Git / GitHub / GitHub actions</span>
+              <span>WordPress</span>
             </div>
 
               <a
@@ -108,9 +113,9 @@ export default function Developpement() {
               <span>Next.js</span>
               <span>TypeScript</span>
               <span>JavaScript</span>
-              <span>css</span>
+              <span>CSS</span>
               <span>PostgreSQL</span>
-              <span>JWT</span>
+              <span>Authentification JWT</span>
             </div>
               <a
                 href="https://github.com/rassimkl/Mon-site-personnel"
