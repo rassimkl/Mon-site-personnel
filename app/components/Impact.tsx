@@ -35,7 +35,7 @@ function Counter({ end, startAnimation }: { end: number; startAnimation: boolean
 
 export default function Impact() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.4 });
+  const isInView = useInView(ref, { amount: 0.2 });
 
   return (
     <section className={styles.section} ref={ref}>
