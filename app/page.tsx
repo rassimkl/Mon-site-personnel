@@ -54,7 +54,7 @@ export default function Home() {
 
       <Confiance />
 
-      <Recommandation />
+      {/* <Recommandation /> */}
 
       <FinalCTA />
 
