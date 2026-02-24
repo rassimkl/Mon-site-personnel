@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import styles from "../../styles/Impact.module.css";
 import { Gauge, GraduationCap } from "lucide-react";
 import { CreditCard } from "lucide-react";
+import { PhoneCall } from "lucide-react";
 
 function Counter({ end, startAnimation }: { end: number; startAnimation: boolean }) {
   const [count, setCount] = useState(0);
@@ -148,7 +149,7 @@ export default function Impact() {
                   animate={isInView ? { scale: [0.8, 1.1, 1] } : {}}
                   transition={{ duration: 0.6 }}
                 >
-                  📶
+                  <PhoneCall size={80} />
                 </motion.div>
 
                 <h3>Optimisation des communications VoIP</h3>
