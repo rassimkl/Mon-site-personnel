@@ -86,6 +86,17 @@ export default function Developpement() {
               >
                 Voir le code de l'application mobile (Frontend) sur GitHub →
               </a>
+              
+              <br/>
+
+              <a
+                href="/documents/rapport_stage.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.projectLink}
+              >
+                Voir mon rapport de stage →
+              </a>
           </div>
         </div>
       </section>
