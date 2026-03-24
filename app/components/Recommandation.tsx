@@ -39,11 +39,21 @@ export default function Recommandation() {
           <Quote className={styles.quoteIcon} size={40} />
 
           <p className={styles.text}>
-            Nous attestons que Rassim KLOUL a fait preuve d’un grand
-            professionnalisme, d’autonomie et d’une capacité
-            d’adaptation remarquable. Son implication dans
-            l’amélioration de nos systèmes internes a eu un impact
-            significatif sur notre organisation.
+              Je soussignée, Maryam IGRAM, Directrice de The Inspire Academy, certifie que M.
+              Rassim KLOUL a effectué un stage au sein de notre établissement en tant que
+              développeur web et mobile. <br/> <br/>
+              Durant son stage, M. KLOUL a travaillé de manière autonome sur plusieurs projets
+              liés au développement de nos outils numériques. Il a notamment assuré la gestion et
+              l’évolution du site web de l’école sous WordPress, travaillé sur notre plateforme
+              interne de gestion développée avec Laravel (PHP), et conçu une application
+              mobile pour l’école en utilisant Spring Boot pour le backend et React Native
+              pour la partie mobile. <br/> <br/>
+              Nous avons particulièrement apprécié son sérieux, son autonomie et la qualité du
+              travail réalisé. <br/> <br/>
+              Au regard de ses compétences techniques et de son professionnalisme, nous
+              recommandons M. Rassim KLOUL pour toute opportunité dans le domaine du
+              développement web et mobile.
+
           </p>
 
           {/* SIGNATURE QUI S'ÉCRIT VRAIMENT */}
@@ -76,7 +86,7 @@ export default function Recommandation() {
   </motion.svg>
 
   <span className={styles.signatureNom}>
-    NOM Prénom
+    Maryam IGRAM
   </span>
 
   <span className={styles.signatureTitle}>
