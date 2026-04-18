@@ -16,7 +16,7 @@ export default function FinalCTA() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Actuellement ouvert aux opportunités en développement & ingénierie IT
+          Actuellement ouvert aux opportunités en développement et en réseau & infrastructure
         </motion.h2>
 
         <motion.p
