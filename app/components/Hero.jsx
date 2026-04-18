@@ -25,7 +25,7 @@ export default function Hero() {
         {/* TITLE */}
         <h1 className={styles.title}>
           <span className={styles.highlight}> Développeur Web & Mobile </span>
-          | Réseaux & Infrastructure
+          | Réseau & Infrastructure
         </h1>
 
         <p className={styles.subtitle}>
