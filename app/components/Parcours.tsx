@@ -21,7 +21,7 @@ export default function Parcours() {
 
                 J’assure également la gestion et l’évolution du site public sous WordPress (optimisation, mise à jour de contenus, amélioration de la fluidité et des pages). <br/> <br/>
 
-                En parallèle, je développe actuellement une application mobile avec un backend en Java / Spring Boot et un frontend en React Native. <br/> <br/>
+                En parallèle, j'ai développé une application mobile avec un backend en Java / Spring Boot et un frontend en React Native. <br/> <br/>
 
                 J’ai mis en place la conteneurisation du backend et de la base de données PostgreSQL avec Docker, ainsi qu’une automatisation CI/CD incluant le build, le push vers Docker Hub et le déploiement automatique.
               </p>
